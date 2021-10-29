@@ -1,0 +1,22 @@
+.textFieldWrong {
+    margin-right: "10px";
+    background-color: rgb(245, 169, 169);
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+  }
+  .textFieldRight{
+    margin-right: "10px";
+    background-color: green;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+  }
+  .show{
+      display: contents;
+  }
+  .hide{
+    display: none;
+}
