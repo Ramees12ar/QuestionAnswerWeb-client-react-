@@ -14,6 +14,7 @@ const AddQuestions = () => {
         else if (secondOpt == null) alert("please fill second Option")
         else if (thirdOpt == null) alert("please fill third Option")
         else {
+            // https://question-answer-web.herokuapp.com/api
             await Axios.post('https://question-answer-web.herokuapp.com/api/insert', {
                 "question": question,
                 "firstopt": firstOpt,

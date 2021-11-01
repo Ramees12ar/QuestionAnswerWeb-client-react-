@@ -14,32 +14,32 @@ const QuestionAnswer = () => {
             setQA(res.data)
         })
     }, [])
-    var data;
+    var item;
     var submitAns = (a, b) => {
-        data = result;
-        if (data.length === questAns.length) {
-            var objIndex = result.findIndex((obj => obj.index == b));
+        item = result;
+        if (item.length === questAns.length) {
+            var objIndex = result.findIndex((obj => obj.index === b));
             result[objIndex].data = a
         }
         else {
-            data.push({
+            item.push({
                 index: b,
                 data: a
             })
         }
-        setResult(data);
+        setResult(item);
     }
     var submit = async () => {
         if (result.length !== questAns.length) alert("please answer all questions...")
         else {
             await Axios.post(('https://question-answer-web.herokuapp.com/api/submit'), {result}).then((res) => {
                 console.log(res);
-                data =JSON.parse(res.data[0].getData);
-                data.forEach((obj,index)=>{
+                item =JSON.parse(res.data[0].getData);
+                item.forEach((obj,index)=>{
                     obj.answer=result[index].data
                 });
-                console.log(data)
-                setViewResult(data)
+                console.log(item)
+                setViewResult(item)
                 setQs("hide");setAs("show")
                 alert(`you scored ${res.data[0].score} out of ${res.data[0].total}`);
             })
